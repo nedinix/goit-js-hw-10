@@ -1,6 +1,6 @@
 import refs from './refs';
 
-function createMarkupCountryList(country) {
+function createMarkupList(country) {
   const markup = country
     .map(
       ({ name, flags: { svg } }) =>
@@ -13,20 +13,20 @@ function createMarkupCountryList(country) {
   refs.list.innerHTML = markup;
 }
 
-function createMarkupCountryInfo(country) {
+function createMarkupInfo(country) {
   const markup = country
     .map(({ name, capital, population, flags: { svg }, languages }) => {
       const languagesList = Object.values(languages);
       return ` <img src="${svg}" alt="${name}" width="320" height="auto">
         <div class='country-info-content'>
-          <p> ${name.official}</p>
-          <p>Capital: <span> ${capital}</span></p>
-          <p>Population: <span> ${population}</span></p>
-          <p>Languages: <span> ${languagesList}</span></p>
+          <p class='country-info-title'> ${name.official}</p>
+          <p class='country-info-text'>Capital: <span> ${capital}</span></p>
+          <p class='country-info-text'>Population: <span> ${population}</span></p>
+          <p class='country-info-text'>Languages: <span> ${languagesList}</span></p>
         </div>`;
     })
     .join('');
   refs.box.innerHTML = markup;
 }
 
-export { createMarkupCountryList, createMarkupCountryInfo };
+export { createMarkupList, createMarkupInfo };
