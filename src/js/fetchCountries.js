@@ -5,9 +5,9 @@ const searchParams = new URLSearchParams({
 
 function fetchCountries(name) {
   return fetch(`${BASE_URL}/${name}?${searchParams}`).then(r => {
-    // if (response.status === 404) {
-    //   throw new Error(response.status);
-    // }
+    if (r.status === 404) {
+      throw new Error(r.status);
+    }
     return r.json();
   });
 }
