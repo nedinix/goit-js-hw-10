@@ -14,6 +14,8 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+
+  background-color: #f4f6f7;
 }
 
 #search-box,
@@ -29,15 +31,19 @@ body {
   padding: 8px;
 
   font: inherit;
+  color: #4d4d4d;
 
   border-radius: 4px;
-  border: 1px solid #bbbbbb;
-  background-color: ffffff;
-  box-shadow: 5px 0px 40px -5px rgba(0, 0, 0, 0.1);
 
+  background-color: ffffff;
+  box-shadow: 5px 0 40px 0px rgba(0, 0, 0, 0.1);
+
+  border-color: transparent;
+  outline: 1px solid #757575;
   outline: transparent;
 
-  transition: box-shadow, border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    outline 250ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   z-index: 999;
 }
@@ -45,8 +51,8 @@ body {
 #search-box:hover,
 #search-box:focus,
 #search-box:active {
-  border: 1px solid #3462b8;
-  box-shadow: 0px 5px 40px -5px rgba(96, 112, 255, 0.39);
+  outline: 1px solid #0c3c6444;
+  box-shadow: 0 0 20px -2px #0f3c77d3;
 }
 
 .country-list {
@@ -80,7 +86,7 @@ body {
 }
 
 .country-info {
-  max-width: 60%;
+  max-width: 500px;
   padding: 20px;
   margin-right: auto;
   margin-left: auto;
@@ -89,7 +95,7 @@ body {
 
   background-color: #ffffff;
   border-radius: 4px;
-  box-shadow: 0 0 40px -5px rgba(204, 204, 204, 1);
+  box-shadow: 0 0 20px -5px rgb(105, 105, 105);
 
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
     opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -97,7 +103,7 @@ body {
 
 .country-info:hover,
 .country-info:focus {
-  box-shadow: 0 0 40px -5px rgb(155, 155, 155);
+  box-shadow: 0 0 30px -5px rgb(44, 44, 44);
 }
 
 .country-info > img {
@@ -108,6 +114,22 @@ body {
   margin-bottom: 8px;
 
   display: block;
+}
+
+.country-info-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #202020;
+}
+.country-info-text {
+  font-size: 20px;
+  line-height: 1.25;
+  color: #302f2f;
+}
+
+.country-info-text span {
+  color: #385791;
 }
 
 .country-info-content:not(:last-child) {
