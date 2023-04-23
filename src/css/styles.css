@@ -48,6 +48,10 @@ body {
   z-index: 999;
 }
 
+#search-box::placeholder {
+  opacity: 0.5;
+}
+
 #search-box:hover,
 #search-box:focus,
 #search-box:active {
