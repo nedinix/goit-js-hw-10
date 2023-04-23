@@ -22,6 +22,7 @@ function onInput(e) {
   fetchCountries(searchValue)
     .then(data => {
       if (data.length > 10) {
+        clearInterface();
         Notify.info(
           'Too many matches found. Please enter a more specific name.'
         );
