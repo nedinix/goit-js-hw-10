@@ -8,6 +8,8 @@ import { Notify } from 'notiflix';
 
 const DEBOUNCE_DELAY = 300;
 
+refs.input.setAttribute('placeholder', 'Search a country by name');
+
 refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 clearMarkup();
