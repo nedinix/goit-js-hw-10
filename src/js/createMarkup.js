@@ -16,7 +16,7 @@ function createMarkupList(country) {
 function createMarkupInfo(country) {
   const markup = country
     .map(({ name, capital, population, flags: { svg }, languages }) => {
-      const languagesList = Object.values(languages);
+      const languagesList = Object.values(languages).join(', ');
       return ` <img src="${svg}" alt="${name}" width="320" height="auto">
         <div class='country-info-content'>
           <p class='country-info-title'> ${name.official}</p>

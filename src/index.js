@@ -10,19 +10,19 @@ const DEBOUNCE_DELAY = 300;
 
 refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
-clearInterface();
+clearMarkup();
 
 function onInput(e) {
   const searchValue = e.target.value.trim();
 
   if (!searchValue) {
-    clearInterface();
+    clearMarkup();
     return;
   }
   fetchCountries(searchValue)
     .then(data => {
       if (data.length > 10) {
-        clearInterface();
+        clearMarkup();
         Notify.info(
           'Too many matches found. Please enter a more specific name.'
         );
@@ -31,8 +31,10 @@ function onInput(e) {
       return renderResponse(data);
     })
     .catch(err => {
-      clearInterface();
-      Notify.failure('Oops, there is no country with that name');
+      clearMarkup();
+      err.message === '404'
+        ? Notify.failure('Oops, there is no country with that name')
+        : console.log(err.message);
     });
 }
 
@@ -47,7 +49,7 @@ function renderResponse(value) {
   }
 }
 
-function clearInterface() {
+function clearMarkup() {
   refs.box.innerHTML = '';
   refs.list.innerHTML = '';
   refs.box.style.visibility = 'hidden';
